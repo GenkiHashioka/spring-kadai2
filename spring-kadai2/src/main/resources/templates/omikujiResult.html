@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日の運勢</title>
+</head>
+<body>
+  <h1>おみくじ</h1>
+
+  <p th:text="'こんにちは、 ' + ${name} + 'さん'"></p>
+  <p th:text="'本日の運勢は...' + ${result} + 'です'"></p>
+</body>
+</html>

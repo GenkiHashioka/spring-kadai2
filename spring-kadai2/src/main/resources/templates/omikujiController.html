@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <!------------------------------------------
+  [概要] 初期画面
+  [詳細] おみくじを行う前の初期画面表示を記述する。
+  ------------------------------------------>
+
+  <!-- 見出し -->
+  <h1>おみくじ</h1>
+  <!-- フォームを作成ボタンをクリックすると/omikujiにページ遷移 method=postでサーバーにリクエストを送信 -->
+  <form action="/omikuji" method="post">
+    名前:<input type="text" name="name">
+    <button type="submit">占う</button>
+  </form>
+</body>
+</html>
