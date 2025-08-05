@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- thymeleaf 読み出し -->
+<html lang="ja" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>掲示板</title>
+</head>
+<body>
+	<!-- 見出し -->
+  <h1>掲示板</h1>
+  <!-- エラーメッセージ,java側で入力がなければこのタグは表示されない。 -->
+  <p th:if="${error}" th:text="${error}" style="color:red;"></p>
+
+  <!-- 投稿用フォーム -->
+  <form action="/apply" method="post">
+    <label>名前:</label><br>
+    <input type="text" name="name"><br><br>
+    <span>今日の気分</span>
+    <select name="mood">
+      <option value="◯">○</option>
+      <option value="△">△</option>
+      <option value="✗">✗</option>
+    </select><br>
+
+    <label>書き込み:</label><br>
+    <textarea name="contents" rows="4" dols="40"></textarea><br><br>
+
+    <button type="submit">投稿する</button>
+  </form>
+
+  <hr>
+
+  <table border="1" width="100%">
+    <tr>
+      <th>日時</th>
+      <th>名前</th>
+      <th>気分</th> <!-- 気分の追加 -->
+      <th>書き込み</th>
+    </tr>
+    <!-- recordsの中身を1件ずつ取り出してrecという変数に入れてループ -->
+    <tr th:each="rec : ${records}">
+
+      <!-- javaでgetterを呼び出しているのと一緒 -->
+      <td th:text="${rec.datetime}"></td>
+      <td th:text="${rec.name}"></td>
+      <!-- 気分の追加処理 -->
+      <td th:text="${rec.mood}"></td>
+      <td th:utext="${rec.contents}"></td>
+    </tr>
+  </table>
+  <!-- 投稿削除処理用 -->
+  <form action="/clear" method="post">
+    <a href="#" onclick="this.closest('form').submit(); return false;">すべてクリア</a>
+  </form>
+</body>
+</html>

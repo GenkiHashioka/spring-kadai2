@@ -69,6 +69,5 @@ public class OmikujiController {
 		
 		// ビューの指定。この場合だとomikujiResult.htmlを表示することになる。
 		return "omikujiResult"; 
-		
 	}
 }
